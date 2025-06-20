@@ -31,16 +31,16 @@
  label.main{display:block;margin-top:1rem;font-weight:600}
  .group{margin-top:.4rem}
  .row5{display:flex;align-items:center;gap:.4rem;margin-top:.35rem}
- .mini{width:3.4rem;text-align:right;font-size:.82rem;opacity:.75}
- input[type="number"]{
-  border:1px solid #bbb;border-radius:.4rem;padding:.45rem;font-size:.9rem;background:var(--bg-color);color:var(--text-color);
+ .mini{width:3.2rem;text-align:right;font-size:.8rem;opacity:.75}
+ input.compact{
+  border:1px solid #bbb;border-radius:.4rem;padding:.4rem;font-size:.9rem;background:var(--bg-color);color:var(--text-color);
  }
- #abi{width:5.5rem;}
- .row5 input{width:3.6rem;}
+ #abi{width:5rem;}
+ .row5 input{width:3.2rem;}
  input[type=number]::-webkit-outer-spin-button,
  input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
  input[type=number]{-moz-appearance:textfield;}
- input[type="number"]:focus{outline:2px solid var(--accent)}
+ input.compact:focus{outline:2px solid var(--accent)}
  button.submit-btn{margin-top:1.2rem;width:100%;padding:.8rem;font-size:1rem;background:var(--accent);color:#fff;border:none;border-radius:.6rem;font-weight:600;cursor:pointer}
  button.submit-btn:hover{filter:brightness(.95)}
  .toggle-theme{
@@ -51,7 +51,7 @@
  [data-theme="dark"] .info-box{background:rgba(255,255,255,.05)}
  .result{margin-top:1.2rem;text-align:center;font-size:1.15rem;font-weight:700;white-space:pre-line}
  .disclaimer{font-size:.78rem;opacity:.75;margin-top:1.2rem;line-height:1.3}
- @media(max-width:430px){.mini{width:3rem;font-size:.78rem}.row5 input{width:3.2rem}}
+ @media(max-width:430px){.mini{width:2.8rem}.row5 input{width:3rem}}
 </style>
 </head>
 <body data-theme="dark">
@@ -60,42 +60,42 @@
 <h1 class="title">Eignungsfeststellungsverfahren – TUM Informatik Bachelor</h1>
 <form id="puanForm" novalidate>
   <label class="main" for="abi">Abitur Notu (1.0 – 6.0 arası)</label>
-  <input type="number" step="0.1" id="abi" inputmode="decimal" min="1" max="6" required />
+  <input type="text" id="abi" class="compact" inputmode="decimal" placeholder="" required />
 
   <label class="main">Almanca Notları <small>(Sırasıyla; 11.1, 11.2, 12.1, 12.2 Halbsjahrenotları yarıyıl ve yazılı Abitur)</small></label>
   <div class="group">
-    <div class="row5"><span class="mini">11.1</span><input type="number" id="de1" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">11.2</span><input type="number" id="de2" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">12.1</span><input type="number" id="de3" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">12.2</span><input type="number" id="de4" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">Yazılı</span><input type="number" id="de5" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">11.1</span><input type="number" id="de1" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">11.2</span><input type="number" id="de2" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">12.1</span><input type="number" id="de3" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">12.2</span><input type="number" id="de4" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">Yazılı</span><input type="number" id="de5" class="compact" min="1" max="15" step="1" required></div>
   </div>
 
   <label class="main">Matematik Notları <small>(Sırasıyla; 11.1, 11.2, 12.1, 12.2 Halbsjahrenotları yarıyıl ve yazılı Abitur)</small></label>
   <div class="group">
-    <div class="row5"><span class="mini">11.1</span><input type="number" id="ma1" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">11.2</span><input type="number" id="ma2" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">12.1</span><input type="number" id="ma3" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">12.2</span><input type="number" id="ma4" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">Yazılı</span><input type="number" id="ma5" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">11.1</span><input type="number" id="ma1" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">11.2</span><input type="number" id="ma2" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">12.1</span><input type="number" id="ma3" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">12.2</span><input type="number" id="ma4" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">Yazılı</span><input type="number" id="ma5" class="compact" min="1" max="15" step="1" required></div>
   </div>
 
   <label class="main">En Başarılı Olduğunuz Naturwissenschaft Notları <small>(Sırasıyla; 11.1, 11.2, 12.1, 12.2 Halbsjahrenotları yarıyıl ve yazılı Abitur)</small></label>
   <div class="group">
-    <div class="row5"><span class="mini">11.1</span><input type="number" id="na1" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">11.2</span><input type="number" id="na2" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">12.1</span><input type="number" id="na3" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">12.2</span><input type="number" id="na4" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">Yazılı</span><input type="number" id="na5" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">11.1</span><input type="number" id="na1" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">11.2</span><input type="number" id="na2" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">12.1</span><input type="number" id="na3" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">12.2</span><input type="number" id="na4" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">Yazılı</span><input type="number" id="na5" class="compact" min="1" max="15" step="1" required></div>
   </div>
 
   <label class="main">İngilizce Notları <small>(Sırasıyla; 11.1, 11.2, 12.1, 12.2 Halbsjahrenotları yarıyıl ve yazılı Abitur)</small></label>
   <div class="group">
-    <div class="row5"><span class="mini">11.1</span><input type="number" id="en1" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">11.2</span><input type="number" id="en2" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">12.1</span><input type="number" id="en3" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">12.2</span><input type="number" id="en4" min="1" max="15" required></div>
-    <div class="row5"><span class="mini">Yazılı</span><input type="number" id="en5" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">11.1</span><input type="number" id="en1" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">11.2</span><input type="number" id="en2" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">12.1</span><input type="number" id="en3" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">12.2</span><input type="number" id="en4" class="compact" min="1" max="15" step="1" required></div>
+    <div class="row5"><span class="mini">Yazılı</span><input type="number" id="en5" class="compact" min="1" max="15" step="1" required></div>
   </div>
 
   <button type="submit" class="submit-btn">Hesapla</button>
@@ -115,36 +115,24 @@ themeBtn.addEventListener('click',()=>{
  const newTheme=body.dataset.theme==='dark'?'light':'dark';
  body.dataset.theme=newTheme;
 });
+
 function clampAndWrite(inp,min,max,step,dec){
- let raw=inp.value.replace(',','.');
+ let raw=inp.value.replace(/,/g,".");
  let v=parseFloat(raw);
  if(isNaN(v)){inp.value='';return;}
  let n=Math.round(v/step)*step;
  n=Math.min(max,Math.max(min,n));
  inp.value=dec? n.toFixed(dec): n.toString();
 }
+
 const abiField=document.getElementById('abi');
-abiField.addEventListener('blur',()=>clampAndWrite(abiField,1,6,0.1,1));
+abiField.addEventListener('blur', ()=>clampAndWrite(abiField,1,6,0.1,1));
+
 ['de','ma','na','en'].forEach(pref=>{
  for(let i=1;i<=5;i++){
   const el=document.getElementById(pref+i);
   el.addEventListener('blur',()=>clampAndWrite(el,1,15,1,0));
  }
-});
-function val(id){return parseFloat(document.getElementById(id).value)||0;}
-function sum(arr){return arr.reduce((s,id)=>s+val(id),0);}
-document.getElementById('puanForm').addEventListener('submit',e=>{
- e.preventDefault();
- const abi=val('abi');
- const AbiP2=0.65*(120-20*abi);
- const DeP=sum(['de1','de2','de3','de4','de5']);
- const MaP=sum(['ma1','ma2','ma3','ma4','ma5']);
- const NaP=sum(['na1','na2','na3','na4','na5']);
- const EnP=sum(['en1','en2','en3','en4','en5']);
- const ZgP=Math.round(((DeP*1+MaP*3+NaP*2+EnP*1)/32)*6+10);
- const Ges=Math.round(ZgP*0.35+AbiP2);
- const durum=Ges>=84?'Direkt Kabul':Ges>=73?'Sınavlı Kabul':'Ret';
- document.getElementById('sonuc').innerText=`Puanınız: ${Ges}\nDurum: ${durum}`;
 });
 </script>
 </body>
