@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Eignungsfeststellungsverfahren - TUM Informatik Bachelor</title>
+<title>Eignungsfeststellungsverfahren – TUM Informatik Bachelor</title>
 <style>
  :root{
   --bg-color:#f0f0f0;
@@ -17,48 +17,50 @@
   --container-bg:#1e1e1e;
   --accent:#66bb6a;
  }
- *{box-sizing:border-box}
+ *{box-sizing:border-box;margin:0;padding:0}
  body{
   font-family:system-ui,sans-serif;
   background:var(--bg-color);
   color:var(--text-color);
-  margin:0;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;
+  display:flex;justify-content:center;align-items:flex-start;min-height:100vh;overflow-x:hidden;
  }
  .container{
-  background:var(--container-bg);width:95%;max-width:620px;margin:1.5rem; padding:1.4rem;border-radius:1rem;box-shadow:0 0 10px rgba(0,0,0,.12);
+  background:var(--container-bg);width:94%;max-width:580px;margin:1.2rem;border-radius:1rem;padding:1.2rem;box-shadow:0 0 10px rgba(0,0,0,.12);
  }
- h1{text-align:center;margin-top:0}
- label.main{display:block;margin-top:1.2rem;font-weight:600}
- .group{margin-top:.6rem}
- .row5{display:flex;align-items:center;gap:.5rem;margin-top:.4rem}
- .mini{width:3.6rem;text-align:right;font-size:.85rem;opacity:.75}
+ h1.title{font-size:1.3rem;line-height:1.35;text-align:center;word-break:break-word;margin-bottom:.8rem;hyphens:auto;}
+ label.main{display:block;margin-top:1rem;font-weight:600}
+ .group{margin-top:.4rem}
+ .row5{display:flex;align-items:center;gap:.4rem;margin-top:.35rem}
+ .mini{width:3.4rem;text-align:right;font-size:.82rem;opacity:.75}
  input[type="number"]{
-  flex:1 1 80px;padding:.55rem;font-size:.95rem;border-radius:.45rem;border:1px solid #bbb;background:var(--bg-color);color:var(--text-color);
+  border:1px solid #bbb;border-radius:.4rem;padding:.45rem;font-size:.9rem;background:var(--bg-color);color:var(--text-color);
  }
+ #abi{width:5.5rem;}
+ .row5 input{width:3.6rem;}
  input[type=number]::-webkit-outer-spin-button,
- input[type=number]::-webkit-inner-spin-button{ -webkit-appearance:none;margin:0; }
- input[type=number]{ -moz-appearance:textfield; }
+ input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+ input[type=number]{-moz-appearance:textfield;}
  input[type="number"]:focus{outline:2px solid var(--accent)}
- button.submit-btn{margin-top:1.5rem;width:100%;padding:.9rem;font-size:1rem;background:var(--accent);color:#fff;border:none;border-radius:.6rem;font-weight:600;cursor:pointer}
+ button.submit-btn{margin-top:1.2rem;width:100%;padding:.8rem;font-size:1rem;background:var(--accent);color:#fff;border:none;border-radius:.6rem;font-weight:600;cursor:pointer}
  button.submit-btn:hover{filter:brightness(.95)}
  .toggle-theme{
-  position:fixed;top:1rem;right:1rem;width:2.5rem;height:2.5rem;border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#000;color:#ffc107;font-size:1.4rem;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:transform .15s ease;
+  position:fixed;top:1rem;right:1rem;width:2.4rem;height:2.4rem;border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#000;color:#ffc107;font-size:1.25rem;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:transform .15s ease;
  }
  .toggle-theme:hover{transform:rotate(20deg)}
- .info-box{background:rgba(0,0,0,.05);border-left:4px solid var(--accent);padding:.8rem 1rem;border-radius:.6rem;font-size:.9rem;margin-top:1.1rem}
+ .info-box{background:rgba(0,0,0,.05);border-left:4px solid var(--accent);padding:.7rem 1rem;border-radius:.6rem;font-size:.85rem;margin-top:1rem}
  [data-theme="dark"] .info-box{background:rgba(255,255,255,.05)}
- .result{margin-top:1.5rem;text-align:center;font-size:1.2rem;font-weight:700}
- .disclaimer{font-size:.8rem;opacity:.75;margin-top:1.4rem;line-height:1.3}
- @media(max-width:480px){input[type="number"],button.submit-btn{font-size:.9rem}.mini{width:3rem;font-size:.8rem}}
+ .result{margin-top:1.2rem;text-align:center;font-size:1.15rem;font-weight:700;white-space:pre-line}
+ .disclaimer{font-size:.78rem;opacity:.75;margin-top:1.2rem;line-height:1.3}
+ @media(max-width:430px){.mini{width:3rem;font-size:.78rem}.row5 input{width:3.2rem}}
 </style>
 </head>
-<body data-theme="light">
+<body data-theme="dark">
 <button class="toggle-theme" id="themeBtn" aria-label="Gece Modu">🌙</button>
 <div class="container">
-<h1>Eignungsfeststellungsverfahren – TUM Informatik Bachelor</h1>
+<h1 class="title">Eignungsfeststellungsverfahren – TUM Informatik Bachelor</h1>
 <form id="puanForm" novalidate>
   <label class="main" for="abi">Abitur Notu (1.0 – 6.0 arası)</label>
-  <input type="number" step="0.1" id="abi" inputmode="decimal" min="1" max="6" required placeholder="örn. 1.7" />
+  <input type="number" step="0.1" id="abi" inputmode="decimal" min="1" max="6" required />
 
   <label class="main">Almanca Notları <small>(Sırasıyla; 11.1, 11.2, 12.1, 12.2 Halbsjahrenotları yarıyıl ve yazılı Abitur)</small></label>
   <div class="group">
@@ -107,32 +109,30 @@ Bu web sitesi resmi değildir ve Münih Teknik Üniversitesi ile bir ilişkisi y
 </p>
 </div>
 <script>
-document.getElementById('themeBtn').addEventListener('click', () => {
-  const body = document.body;
-  const current = body.getAttribute('data-theme');
-  body.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+const themeBtn=document.getElementById('themeBtn');
+themeBtn.addEventListener('click',()=>{
+ const body=document.body;
+ const newTheme=body.dataset.theme==='dark'?'light':'dark';
+ body.dataset.theme=newTheme;
 });
-
 function clampAndWrite(inp,min,max,step,dec){
- let v=parseFloat(inp.value.replace(',','.'));
+ let raw=inp.value.replace(',','.');
+ let v=parseFloat(raw);
  if(isNaN(v)){inp.value='';return;}
  let n=Math.round(v/step)*step;
  n=Math.min(max,Math.max(min,n));
  inp.value=dec? n.toFixed(dec): n.toString();
 }
-
 const abiField=document.getElementById('abi');
 abiField.addEventListener('blur',()=>clampAndWrite(abiField,1,6,0.1,1));
 ['de','ma','na','en'].forEach(pref=>{
  for(let i=1;i<=5;i++){
-   const el=document.getElementById(pref+i);
-   el.addEventListener('blur',()=>clampAndWrite(el,1,15,1,0));
+  const el=document.getElementById(pref+i);
+  el.addEventListener('blur',()=>clampAndWrite(el,1,15,1,0));
  }
 });
-
 function val(id){return parseFloat(document.getElementById(id).value)||0;}
 function sum(arr){return arr.reduce((s,id)=>s+val(id),0);}
-
 document.getElementById('puanForm').addEventListener('submit',e=>{
  e.preventDefault();
  const abi=val('abi');
