@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eignungsfeststellungsverfahren - TUM Informatik Bachelor</title>
+<style>
+ :root{
+  --bg-color:#f0f0f0;
+  --text-color:#000;
+  --container-bg:#fff;
+  --accent:#4caf50;
+ }
+ [data-theme="dark"]{
+  --bg-color:#121212;
+  --text-color:#eee;
+  --container-bg:#1e1e1e;
+  --accent:#66bb6a;
+ }
+ *{box-sizing:border-box}
+ body{
+  font-family:system-ui,sans-serif;
+  background:var(--bg-color);
+  color:var(--text-color);
+  margin:0;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;
+ }
+ .container{
+  background:var(--container-bg);width:95%;max-width:620px;margin:1.5rem; padding:1.4rem;border-radius:1rem;box-shadow:0 0 10px rgba(0,0,0,.12);
+ }
+ h1{text-align:center;margin-top:0}
+ label.main{display:block;margin-top:1.2rem;font-weight:600}
+ .group{margin-top:.6rem}
+ .row5{display:flex;align-items:center;gap:.5rem;margin-top:.4rem}
+ .mini{width:3.6rem;text-align:right;font-size:.85rem;opacity:.75}
+ input[type="number"]{
+  flex:1 1 80px;padding:.55rem;font-size:.95rem;border-radius:.45rem;border:1px solid #bbb;background:var(--bg-color);color:var(--text-color);
+ }
+ input[type=number]::-webkit-outer-spin-button,
+ input[type=number]::-webkit-inner-spin-button{ -webkit-appearance:none;margin:0; }
+ input[type=number]{ -moz-appearance:textfield; }
+ input[type="number"]:focus{outline:2px solid var(--accent)}
+ button.submit-btn{margin-top:1.5rem;width:100%;padding:.9rem;font-size:1rem;background:var(--accent);color:#fff;border:none;border-radius:.6rem;font-weight:600;cursor:pointer}
+ button.submit-btn:hover{filter:brightness(.95)}
+ .toggle-theme{
+  position:fixed;top:1rem;right:1rem;width:2.5rem;height:2.5rem;border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#000;color:#ffc107;font-size:1.4rem;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:transform .15s ease;
+ }
+ .toggle-theme:hover{transform:rotate(20deg)}
+ .info-box{background:rgba(0,0,0,.05);border-left:4px solid var(--accent);padding:.8rem 1rem;border-radius:.6rem;font-size:.9rem;margin-top:1.1rem}
+ [data-theme="dark"] .info-box{background:rgba(255,255,255,.05)}
+ .result{margin-top:1.5rem;text-align:center;font-size:1.2rem;font-weight:700}
+ .disclaimer{font-size:.8rem;opacity:.75;margin-top:1.4rem;line-height:1.3}
+ @media(max-width:480px){input[type="number"],button.submit-btn{font-size:.9rem}.mini{width:3rem;font-size:.8rem}}
+</style>
+</head>
+<body data-theme="light">
+<button class="toggle-theme" id="themeBtn" aria-label="Gece Modu">🌙</button>
+<div class="container">
+<h1>Eignungsfeststellungsverfahren – TUM Informatik Bachelor</h1>
+<form id="puanForm" novalidate>
+  <label class="main" for="abi">Abitur Notu (1.0 – 6.0 arası)</label>
+  <input type="number" step="0.1" id="abi" inputmode="decimal" min="1" max="6" required placeholder="örn. 1.7" />
+
+  <label class="main">Almanca Notları <small>(Sırasıyla; 11.1, 11.2, 12.1, 12.2 Halbsjahrenotları yarıyıl ve yazılı Abitur)</small></label>
+  <div class="group">
+    <div class="row5"><span class="mini">11.1</span><input type="number" id="de1" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">11.2</span><input type="number" id="de2" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">12.1</span><input type="number" id="de3" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">12.2</span><input type="number" id="de4" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">Yazılı</span><input type="number" id="de5" min="1" max="15" required></div>
+  </div>
+
+  <label class="main">Matematik Notları <small>(Sırasıyla; 11.1, 11.2, 12.1, 12.2 Halbsjahrenotları yarıyıl ve yazılı Abitur)</small></label>
+  <div class="group">
+    <div class="row5"><span class="mini">11.1</span><input type="number" id="ma1" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">11.2</span><input type="number" id="ma2" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">12.1</span><input type="number" id="ma3" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">12.2</span><input type="number" id="ma4" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">Yazılı</span><input type="number" id="ma5" min="1" max="15" required></div>
+  </div>
+
+  <label class="main">En Başarılı Olduğunuz Naturwissenschaft Notları <small>(Sırasıyla; 11.1, 11.2, 12.1, 12.2 Halbsjahrenotları yarıyıl ve yazılı Abitur)</small></label>
+  <div class="group">
+    <div class="row5"><span class="mini">11.1</span><input type="number" id="na1" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">11.2</span><input type="number" id="na2" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">12.1</span><input type="number" id="na3" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">12.2</span><input type="number" id="na4" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">Yazılı</span><input type="number" id="na5" min="1" max="15" required></div>
+  </div>
+
+  <label class="main">İngilizce Notları <small>(Sırasıyla; 11.1, 11.2, 12.1, 12.2 Halbsjahrenotları yarıyıl ve yazılı Abitur)</small></label>
+  <div class="group">
+    <div class="row5"><span class="mini">11.1</span><input type="number" id="en1" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">11.2</span><input type="number" id="en2" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">12.1</span><input type="number" id="en3" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">12.2</span><input type="number" id="en4" min="1" max="15" required></div>
+    <div class="row5"><span class="mini">Yazılı</span><input type="number" id="en5" min="1" max="15" required></div>
+  </div>
+
+  <button type="submit" class="submit-btn">Hesapla</button>
+</form>
+<div class="info-box"><strong>Puan Aralıkları:</strong><br>≥ 84 → Direkt Kabul<br>73 – 83 → Sınavlı Kabul<br>< 73 → Ret</div>
+<div class="result" id="sonuc"></div>
+<p class="disclaimer">
+Diese Website ist nicht offiziell und steht in keiner Verbindung zur Technischen Universität München. Es wird keine Gewähr für die Richtigkeit übernommen; der Entwickler übernimmt keine Verantwortung für Schäden, die aus der Nutzung der Website entstehen.<br><br>
+Bu web sitesi resmi değildir ve Münih Teknik Üniversitesi ile bir ilişkisi yoktur. Doğruluk garantisi verilmez ve web sitesinin kullanımı sonucu doğacak sorunlarla ilgili siteyi hazırlayan sorumluluk kabul etmez.<br><br>
+– Poyraz, DSI ’26
+</p>
+</div>
+<script>
+document.getElementById('themeBtn').addEventListener('click', () => {
+  const body = document.body;
+  const current = body.getAttribute('data-theme');
+  body.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+});
+
+function clampAndWrite(inp,min,max,step,dec){
+ let v=parseFloat(inp.value.replace(',','.'));
+ if(isNaN(v)){inp.value='';return;}
+ let n=Math.round(v/step)*step;
+ n=Math.min(max,Math.max(min,n));
+ inp.value=dec? n.toFixed(dec): n.toString();
+}
+
+const abiField=document.getElementById('abi');
+abiField.addEventListener('blur',()=>clampAndWrite(abiField,1,6,0.1,1));
+['de','ma','na','en'].forEach(pref=>{
+ for(let i=1;i<=5;i++){
+   const el=document.getElementById(pref+i);
+   el.addEventListener('blur',()=>clampAndWrite(el,1,15,1,0));
+ }
+});
+
+function val(id){return parseFloat(document.getElementById(id).value)||0;}
+function sum(arr){return arr.reduce((s,id)=>s+val(id),0);}
+
+document.getElementById('puanForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const abi=val('abi');
+ const AbiP2=0.65*(120-20*abi);
+ const DeP=sum(['de1','de2','de3','de4','de5']);
+ const MaP=sum(['ma1','ma2','ma3','ma4','ma5']);
+ const NaP=sum(['na1','na2','na3','na4','na5']);
+ const EnP=sum(['en1','en2','en3','en4','en5']);
+ const ZgP=Math.round(((DeP*1+MaP*3+NaP*2+EnP*1)/32)*6+10);
+ const Ges=Math.round(ZgP*0.35+AbiP2);
+ const durum=Ges>=84?'Direkt Kabul':Ges>=73?'Sınavlı Kabul':'Ret';
+ document.getElementById('sonuc').innerText=`Puanınız: ${Ges}\nDurum: ${durum}`;
+});
+</script>
+</body>
+</html>
